@@ -1,0 +1,50 @@
+# --- Secrets & environment ---
+.env
+.env.*
+!.env.example
+server/.env
+client/.env
+client/.env.*
+!client/.env.example
+
+# --- Python (server) ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+server/.venv/
+.pytest_cache/
+.import_linter_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- Cognee local stores (SQLite + Kuzu + LanceDB; large, contain embeddings) ---
+server/.cognee/
+server/snapshots/
+
+# --- Node / client ---
+node_modules/
+client/dist/
+client/dist-ssr/
+client/coverage/
+client/test-results/
+client/playwright-report/
+client/playwright/.cache/
+
+# --- Build artifacts ---
+dist/
+build/
+
+# --- Internal working docs (kept locally, not published) ---
+design/
+docs/
+PRODUCT.md
+DESIGN.md
+
+# --- Tooling / editors / OS ---
+.claude/
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db

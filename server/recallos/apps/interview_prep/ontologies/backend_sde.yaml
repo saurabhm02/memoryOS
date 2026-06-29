@@ -1,0 +1,43 @@
+# Backend Engineering — System Design competency ontology (RecallOS interview-prep app, v1).
+#
+# `prereq_of` lists the concepts that this concept is a prerequisite OF. Authored
+# data, never inferred. "Consistency Models" is the planted shared root: Caching,
+# Database Round Trips, and Distributed Transactions all depend on it, so a learner
+# weak on those three deterministically traces up to Consistency Models — a concept
+# with no direct evidence of its own.
+domain: backend_sde
+version: "1.0.0"
+title: "Backend Engineering — System Design"
+weak_threshold: 4
+
+concepts:
+  - name: Distributed Transactions
+    prereq_of: []
+  - name: Caching
+    prereq_of: []
+  - name: Database Round Trips
+    prereq_of: []
+  - name: Sharding
+    prereq_of: []
+  - name: Replication
+    prereq_of: []
+  - name: Consistency Models
+    prereq_of: [Caching, Database Round Trips, Distributed Transactions]
+  - name: Indexing
+    prereq_of: [Database Round Trips]
+  - name: Partitioning
+    prereq_of: [Sharding]
+  - name: Concurrency Control
+    prereq_of: [Distributed Transactions]
+  - name: CAP Theorem
+    prereq_of: [Replication, Consistency Models]
+  - name: Data Modeling
+    prereq_of: [Indexing]
+  - name: Load Balancing
+    prereq_of: []
+  - name: Message Queues
+    prereq_of: []
+  - name: Rate Limiting
+    prereq_of: []
+  - name: Idempotency
+    prereq_of: [Message Queues]

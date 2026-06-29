@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Canvas & surfaces */
+    --bg: oklch(0.17 0.022 264);
+    --surface: oklch(0.21 0.024 264);
+    --surface-2: oklch(0.25 0.026 264);
+    --border: oklch(0.31 0.026 264);
+    --border-strong: oklch(0.4 0.03 264);
+
+    /* Ink */
+    --ink: oklch(0.97 0.008 264);
+    --ink-muted: oklch(0.74 0.018 264);
+    /* Bumped to 0.68 so even small tertiary text clears WCAG AA (4.5:1) on surfaces. */
+    --ink-subtle: oklch(0.68 0.018 264);
+
+    /* Primary action */
+    --primary: oklch(0.64 0.155 255);
+    --primary-hover: oklch(0.69 0.155 255);
+    --primary-ink: oklch(0.99 0 0);
+
+    /* Diagnostic accent — reserved for root cause */
+    --root-cause: oklch(0.8 0.15 78);
+    --root-cause-bg: oklch(0.24 0.045 78);
+
+    /* Mastery semantics (graph + chips only) */
+    --weak: oklch(0.64 0.205 25);
+    --medium: oklch(0.74 0.15 65);
+    --mastered: oklch(0.72 0.15 155);
+    --unvisited: oklch(0.5 0.02 264);
+    --pattern: oklch(0.62 0.15 285);
+
+    /* Status */
+    --success: oklch(0.72 0.15 155);
+    --danger: oklch(0.64 0.205 25);
+
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: oklch(0.64 0.155 255 / 0.32);
+  }
+}
+
+/* Reduced-motion safety net for every animation/transition (incl. Tailwind + library). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
